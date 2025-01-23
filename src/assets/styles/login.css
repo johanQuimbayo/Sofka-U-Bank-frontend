@@ -16,6 +16,11 @@ body {
   border-radius: 0;
   overflow: hidden;
 }
+.login-form-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .image-section {
   flex: 1;
@@ -24,7 +29,6 @@ body {
   align-items: center;
   background: #FF7E08;
 }
-
 .image-section img {
   width: 80%;
 }
@@ -36,33 +40,28 @@ body {
   align-items: center;
   padding: 30px;
 }
-
-.register-form {
+.form-wrapper .login-form {
   width: 100%;
   max-width: 400px;
 }
-
-.register-form h1 {
+.form-wrapper .login-form h1 {
   font-size: 24px;
   color: #000;
   font-weight: 600;
   margin-bottom: 40px;
 }
-
-.form-group {
+.form-wrapper .login-form .form-group {
   width: 100%;
   margin-bottom: 20px;
 }
-
-.form-group label {
+.form-wrapper .login-form .form-group label {
   font-size: px;
   font-weight: 500;
   color: #666;
   margin-bottom: 5px;
   display: block;
 }
-
-.form-group input {
+.form-wrapper .login-form .form-group input {
   width: 100%;
   padding: 12px;
   border: none;
@@ -71,23 +70,15 @@ body {
   font-size: 14px;
   transition: box-shadow 0.3s;
 }
-
-.form-group input:focus {
-  box-shadow: 0 0 5px rgba(255 126 8);
+.form-wrapper .login-form .form-group input:focus {
+  box-shadow: 0 0 5px rgb(255, 126, 8);
   outline: none;
 }
-
-.container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-button {
+.form-wrapper .login-form button {
   width: 60%;
   padding: 12px;
   background: #FF7E08;
-  color: #fdfbfb;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 750;
   border: none;
@@ -95,36 +86,15 @@ button {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-
-button:hover {
-  background-color: #c66105;
+.form-wrapper .login-form button:hover {
+  background-color: #db6902;
 }
-
-p {
-  margin-top: 15px;
-  font-size: 14px;
-  text-align: center;
-  color: #666;
-}
-
-p a {
-  color: #db6902;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-p a:hover {
-  text-decoration: underline;
-}
-
-.g-container {
+.form-wrapper .login-form .container {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 20px;
 }
-
-.google-button {
+.form-wrapper .login-form .google-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,18 +107,34 @@ p a:hover {
   font-size: 14px;
   font-weight: 500;
 }
-
-.google-button img {
+.form-wrapper .login-form .google-button img {
   width: 20px;
   height: 20px;
   margin-right: 10px;
 }
-
-.google-button:hover {
+.form-wrapper .login-form .google-button:hover {
   background: #f9f9f9;
 }
-
-.footer {
+.form-wrapper .login-form .g-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-wrapper .login-form p {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: #666;
+}
+.form-wrapper .login-form p a {
+  color: #FF7E08;
+  font-weight: 600;
+  text-decoration: none;
+}
+.form-wrapper .login-form p a:hover {
+  text-decoration: underline;
+}
+.form-wrapper .login-form .footer {
   text-align: center;
   font-size: 12px;
   color: #aaa;
@@ -162,8 +148,50 @@ p a:hover {
   display: block;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 750px) {
   .image-section{
     display: none;
   }
 }
+
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#loading-screen.hidden {
+  display: none;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #4CAF50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#loading-screen p {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 500;
+}
+
